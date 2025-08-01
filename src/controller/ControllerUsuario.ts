@@ -8,7 +8,7 @@ import { Request, Response } from "express";
 interface UsuarioDTO {
     nome: string;
     tipoUsuario: string;
-    contato: string;
+    contato: string
 }
 
 /**
@@ -19,16 +19,17 @@ class UsuarioController extends Usuario {
     static async todos(req: Request, res: Response): Promise<any> {
         try {
             const listaDeUsuarios = await Usuario.listarUsuarios();
+            
+            return res.status(200).json(listaDeUsuarios);
 
-           return res.status(200).json(listaDeUsuarios);
         } catch (error) {
             console.log(`Erro ao acessar método herdado: ${error}`);
 
-          return res.status(400).json("Erro ao recuperar as informações do Usuário");
+           return res.status(400).json("Erro ao recuperar as informações do Usuário");
         }
     }
 
-    static async cadastrar(req: Request, res: Response) {
+    static async cadastrar(req: Request, res: Response) : Promise<any>  {
         try {
             // Desestruturando objeto recebido pelo front-end
             const dadosRecebidos: UsuarioDTO = req.body;
@@ -76,6 +77,7 @@ class UsuarioController extends Usuario {
         try {
             // Desestruturando objeto recebido pelo front-end
             const dadosRecebidos: UsuarioDTO= req.body;
+            console.log(dadosRecebidos)
             
             // Instanciando objeto Usuário
             const usuario = new Usuario(

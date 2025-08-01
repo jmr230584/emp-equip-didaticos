@@ -74,7 +74,7 @@ export class Usuario {
                 let novoUsuario = new Usuario(
                     usuario.nome,
                     usuario.tipo_usuario,
-                    usuario.contado
+                    usuario.contato
                 );
                 // adicionando o ID ao objeto
                 novoUsuario.setIdUsuario(usuario.id_usuario);
@@ -98,9 +98,9 @@ export class Usuario {
             const queryInsertUsuario = `
                 INSERT INTO Usuario (nome, tipo_usuario, contato)
                 VALUES (
-                    '${usuario.getNome().toUpperCase()}',
-                    '${usuario.getTipoUsuario().toUpperCase()}',
-                    '${usuario.getContato().toLocaleUpperCase()}'
+                    '${usuario.getNome()}',
+                    '${usuario.getTipoUsuario()}',
+                    '${usuario.getContato()}'
                 )
                 RETURNING id_usuario;`;
 
@@ -134,7 +134,7 @@ export class Usuario {
         try {        
 
             // Construção da query SQL para deletar o Aluno.
-            const queryDeleteUsuario = `DELETE Usuario WHERE id_usuario=${idUsuario};`;
+            const queryDeleteUsuario = `DELETE FROM Usuario WHERE id_usuario=${idUsuario};`;
     
             // Executa a query de exclusão e verifica se a operação foi bem-sucedida.
             await dataBase.query(queryDeleteUsuario)
@@ -163,9 +163,9 @@ export class Usuario {
         try {
             // Construção da query SQL para atualizar os dados do usuario.
             const queryAtualizaUsuario = `UPDATE Usuario SET 
-                                            nome = '${usuario.getNome().toUpperCase()}', 
-                                            tipo_usuarioe = '${usuario.getTipoUsuario().toUpperCase()}',
-                                            contato = '${usuario.getContato().toLocaleUpperCase}'                                                                                    
+                                            nome = '${usuario.getNome()}', 
+                                            tipo_usuario = '${usuario.getTipoUsuario()}',
+                                            contato = '${usuario.getContato()}'                                                                                    
                                         WHERE id_usuario = ${usuario.idUsuario}`;
 
             // Executa a query de atualização e verifica se a operação foi bem-sucedida.

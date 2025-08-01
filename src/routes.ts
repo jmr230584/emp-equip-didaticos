@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 // CRUD Usuario
 router.get(SERVER_ROUTES.LISTAR_USUARIO, UsuarioController.todos);
 router.post(SERVER_ROUTES.NOVO_USUARIO, UsuarioController.cadastrar);
-router.put(SERVER_ROUTES.REMOVER_USUARIO, UsuarioController.remover);
+router.delete(SERVER_ROUTES.REMOVER_USUARIO, UsuarioController.remover);
 router.put(SERVER_ROUTES.ATUALIZAR_USUARIO, UsuarioController.atualizar);
 
 export { router }
