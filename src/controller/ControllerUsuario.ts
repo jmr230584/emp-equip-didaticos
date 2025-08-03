@@ -73,7 +73,7 @@ class UsuarioController extends Usuario {
         }
     }
 
-    static async atualizar(req: Request, res: Response): Promise<Response> {
+    static async atualizar(req: Request, res: Response): Promise<any> {
         try {
             // Desestruturando objeto recebido pelo front-end
             const dadosRecebidos: UsuarioDTO= req.body;

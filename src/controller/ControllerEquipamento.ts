@@ -32,7 +32,6 @@ class EquipamentoController extends Equipamento {
                 dadosRecebidos.categoria,
                 dadosRecebidos.status              
             );
-
             
             const result = await Equipamento.cadastrarEquipamento(novoEquipamento);
 
@@ -64,7 +63,7 @@ class EquipamentoController extends Equipamento {
         }
     }
 
-    static async atualizar(req: Request, res: Response): Promise<Response> {
+    static async atualizar(req: Request, res: Response): Promise<any> {
         try {
             
             const dadosRecebidos: EquipamentoDTO= req.body;

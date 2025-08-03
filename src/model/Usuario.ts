@@ -17,7 +17,6 @@ export class Usuario {
         this.tipoUsuario = _tipoUsuario;
         this.contato = _contato;        
     }
-
     
     public getIdUsuario(): number{
         return this.idUsuario;
